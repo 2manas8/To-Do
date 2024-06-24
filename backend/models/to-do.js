@@ -1,7 +1,5 @@
 const mongoose = require('mongoose')
 
-mongoose.connect('mongodb+srv://dasmp123:ETViIPFnBvngwSia@to-do.vzcz2gw.mongodb.net/items')
-
 const ToDoSchema = new mongoose.Schema({
     task: String,
     done: {
@@ -10,6 +8,6 @@ const ToDoSchema = new mongoose.Schema({
     }
 })
 
-const ToDoModel = mongoose.model("to-do_list", ToDoSchema)
+const ToDo = mongoose.model('ToDo', ToDoSchema)
 
-module.exports = ToDoModel
+module.exports = ToDo
