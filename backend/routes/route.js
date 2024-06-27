@@ -1,4 +1,4 @@
-const express= require('express')
+const express = require('express')
 const router = express.Router()
 
 const {addTask} = require('../controller/addTask')
@@ -12,6 +12,5 @@ router.delete('/delete/:id', deleteTask);
 
 const {taskComplete} = require('../controller/taskComplete')
 router.put('/complete/:id', taskComplete);
-
 
 module.exports = router

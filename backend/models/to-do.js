@@ -8,6 +8,6 @@ const ToDoSchema = new mongoose.Schema({
     }
 })
 
-const ToDo = mongoose.model('ToDo', ToDoSchema)
+const ToDo = mongoose.model('ToDoCollection', ToDoSchema)
 
 module.exports = ToDo

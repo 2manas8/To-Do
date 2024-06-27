@@ -1,10 +1,10 @@
-const Todo=require('../models/to-do');
+const Todo = require('../models/to-do');
 
 exports.addTask = async (req, res) => {
     try {
         const task = req.body.task;
-        const existinTask = await Todo.findOne({task});
-        if(existinTask) {
+        const existingTask = await Todo.findOne({task});
+        if(existingTask) {
             return res.status(400).json({message: "Task Already Exist"});
         }
         const saveTask = await Todo.create({task});
