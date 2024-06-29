@@ -2,11 +2,10 @@ const Todo = require('../models/to-do');
 
 exports.deleteTask = async (req, res) => {
     try {
-        //get id from params
         const taskId = req.params.id;
         const existingTask = await Todo.findOne({_id: taskId});
         if(!existingTask) {
-            return res.status(400).json({message: "Task Not Found"});
+            return res.status(400).json({message: "Task not found"});
         }
         const deleteTask = await Todo.deleteOne({
             _id: taskId

@@ -14,6 +14,6 @@ app.listen(port, () => {
 
 dbConnect()
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
     res.send(`<h1>Backend is Running and this is '/' Route</h1>`);
 });
