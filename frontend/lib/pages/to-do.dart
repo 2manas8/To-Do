@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/models/tasks.dart';
 import 'package:frontend/providers/controllers.dart';
 import 'package:frontend/services/to-do_services.dart';
+import 'package:frontend/utils/colors.dart';
 import 'package:frontend/utils/constants.dart';
 import 'package:frontend/widgets/custom_text_field.dart';
 import 'package:frontend/widgets/custom_title.dart';
 import 'package:frontend/widgets/error_text.dart';
+import 'package:frontend/widgets/no_tasks_available.dart';
 import 'package:frontend/widgets/task_display.dart';
 
 class ToDoPage extends StatefulWidget {
@@ -13,12 +16,19 @@ class ToDoPage extends StatefulWidget {
 }
 
 class ToDoPageState extends State<ToDoPage> {
-  bool isCheck = false;
+  List<Task>? tasks;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchTasks();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(backgroundColor: AppColors.primaryColor),
+      backgroundColor: AppColors.primaryColor,
       body: Column(
         children: [
           CustomTitle(
@@ -34,12 +44,39 @@ class ToDoPageState extends State<ToDoPage> {
               await ToDoApiCalls.addTask(
                 NewTaskControllers.newTaskController.text.toString()
               );
-              setState(() {});
+              fetchTasks();
             },
           ),
-          TaskDisplay()
+          Expanded(
+            child: ((tasks == null) || tasks!.isEmpty)
+            ? NoTasksAvailable()
+            : ListView.builder(
+              itemCount: tasks!.length,
+              itemBuilder: (context, index) {
+                final task = tasks![index];
+                return TaskDisplay(
+                  id: task.id,
+                  task: task.task,
+                  done: task.done,
+                  onChangedFunction: (bool? value) async {
+                    await ToDoApiCalls.taskComplete(task.id);
+                    fetchTasks();
+                  },
+                  onPressedFunction: () async {
+                    await ToDoApiCalls.deleteTask(task.id);
+                    fetchTasks();
+                  },
+                );
+              }
+            ),
+          )
         ],
       )
     );
+  }
+
+  void fetchTasks() async {
+    tasks = await ToDoApiCalls.getTask();
+    setState(() {});
   }
 }

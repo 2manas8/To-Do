@@ -1,9 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:frontend/providers/controllers.dart';
 import 'package:frontend/utils/colors.dart';
 import 'package:frontend/utils/constants.dart';
 
 class TaskDisplay extends StatefulWidget {
+  final String id;
+  final String task;
+  final bool done;
+  final void Function(bool?) onChangedFunction;
+  final void Function() onPressedFunction;
+
+  TaskDisplay({
+    required this.id,
+    required this.task,
+    required this.done,
+    required this.onChangedFunction,
+    required this.onPressedFunction
+  });
+
   @override
   State<TaskDisplay> createState() => TaskDisplayState();
 }
@@ -22,23 +35,19 @@ class TaskDisplayState extends State<TaskDisplay> {
       child: Row(
         children: [
           Checkbox(
-            value: TaskControllers.isCheck,
-            onChanged: (bool? value) {
-              setState(() {
-                TaskControllers.isCheck = value!;
-              });
-            },
+            value: widget.done,
+            onChanged: widget.onChangedFunction,
             activeColor: AppColors.primaryColor,
             checkColor: AppColors.tertiaryColor,
           ),
           Expanded(
             child: Text(
-              'Text',
+              widget.task,
               textAlign: TextAlign.start,
               style: TextStyle(
                 color: AppColors.primaryColor,
                 fontSize: 18.0,
-                decoration: TaskControllers.isCheck ? TextDecoration.lineThrough : null,
+                decoration: widget.done ? TextDecoration.lineThrough : null,
                 decorationThickness: 2.0,
                 decorationColor: AppColors.primaryColor
               ),
@@ -46,13 +55,12 @@ class TaskDisplayState extends State<TaskDisplay> {
             ),
           ),
           IconButton(
-            onPressed: (){
-              print('Task deleted');
-            },
+            onPressed: widget.onPressedFunction,
             icon: Icon(
               Icons.delete,
               color: AppColors.primaryColor,
-            ))
+            )
+          )
         ],
       ),
     );
