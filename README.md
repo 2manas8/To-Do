@@ -42,10 +42,10 @@ The backend is built using Node.js with Express.js to create a RESTful API. Mong
 
 #### Key Routes
 
-- **POST /tasks**: Adds a new task
-- **GET /tasks**: Retrieves all tasks
-- **PUT /tasks/:id**: Toggles the completion status of a task
-- **DELETE /tasks/:id**: Deletes a task
+- **POST /add**: Adds a new task
+- **GET /get**: Retrieves all tasks
+- **PUT /complete/:id**: Toggles the completion status of a task
+- **DELETE /delete/:id**: Deletes a task
 
 ## Installation and Setup
 
@@ -61,7 +61,7 @@ The backend is built using Node.js with Express.js to create a RESTful API. Mong
 
    ```sh
    git clone https://github.com/2manas8/To-Do_App
-   cd todo-app
+   cd To-Do_App
    ```
 
 2. **Install dependencies**
@@ -92,10 +92,11 @@ The backend is built using Node.js with Express.js to create a RESTful API. Mong
 
 3. **Set up environment variables**
 
-   Create a `.env` file in the root of the `backend` directory and add your MongoDB connection string:
+   Create a `.env` file in the root of the `backend` directory and add your MongoDB connection string along with your preferred port:
 
    ```env
-   MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/todo?retryWrites=true&w=majority
+   DATABASE_URL = 'mongodb+srv://<username>:<password>@cluster0.mongodb.net/todo?retryWrites=true&w=majority'
+   PORT = 3000
    ```
 
 4. **Run the server**
@@ -116,6 +117,6 @@ The backend is built using Node.js with Express.js to create a RESTful API. Mong
 
 2. **Complete a task**: Check the checkbox next to a task to mark it as completed.
 
-   ![Complete Task](./assets/task_done.png)
-
 3. **Delete a task**: Press the delete button next to a task to remove it from the list.
+
+![Features](./assets/task_done.png)
