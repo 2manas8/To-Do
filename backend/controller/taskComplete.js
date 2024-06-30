@@ -7,11 +7,12 @@ exports.taskComplete = async (req, res) => {
         if(!existingTask) {
             return res.status(400).json({message: "Task not found"});
         }
+        const newDone = !existingTask.done
         const taskComplete = await Todo.updateOne({
             _id: taskId
         }, {
             $set: {
-                done: true
+                done: newDone
             }
         });
         res.status(200).json({message: "Task updated", task: taskComplete});
