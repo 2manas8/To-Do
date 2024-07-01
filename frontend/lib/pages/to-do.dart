@@ -58,10 +58,6 @@ class ToDoPageState extends State<ToDoPage> {
                   id: task.id,
                   task: task.task,
                   done: task.done,
-                  onChangedFunction: (bool? value) async {
-                    await ToDoApiCalls.taskComplete(task.id);
-                    fetchTasks();
-                  },
                   onPressedFunction: () async {
                     await ToDoApiCalls.deleteTask(task.id);
                     fetchTasks();

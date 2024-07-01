@@ -21,4 +21,4 @@ const double borderRadius = 10.0;
 const Duration splashScreenDuration= Duration(seconds: 2);
 
 // Image constants
-const String logo = 'assets/images/logo.png';
+const String logo = 'assets/images/todo.png';

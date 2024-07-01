@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/services/to-do_services.dart';
 import 'package:frontend/utils/colors.dart';
 import 'package:frontend/utils/constants.dart';
 
@@ -6,14 +7,12 @@ class TaskDisplay extends StatefulWidget {
   final String id;
   final String task;
   final bool done;
-  final void Function(bool?) onChangedFunction;
   final void Function() onPressedFunction;
 
   TaskDisplay({
     required this.id,
     required this.task,
     required this.done,
-    required this.onChangedFunction,
     required this.onPressedFunction
   });
 
@@ -22,6 +21,14 @@ class TaskDisplay extends StatefulWidget {
 }
 
 class TaskDisplayState extends State<TaskDisplay> {
+  bool isChecked = false;
+
+  @override
+  void initState() {
+    super.initState();
+    isChecked = widget.done;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,8 +42,13 @@ class TaskDisplayState extends State<TaskDisplay> {
       child: Row(
         children: [
           Checkbox(
-            value: widget.done,
-            onChanged: widget.onChangedFunction,
+            value: isChecked,
+            onChanged: (bool? value) async {
+              setState(() {
+                isChecked = value!;
+              });
+              await ToDoApiCalls.taskComplete(widget.id);
+            },
             activeColor: AppColors.primaryColor,
             checkColor: AppColors.tertiaryColor,
           ),
@@ -47,7 +59,7 @@ class TaskDisplayState extends State<TaskDisplay> {
               style: TextStyle(
                 color: AppColors.primaryColor,
                 fontSize: 18.0,
-                decoration: widget.done ? TextDecoration.lineThrough : null,
+                decoration: isChecked ? TextDecoration.lineThrough : null,
                 decorationThickness: 2.0,
                 decorationColor: AppColors.primaryColor
               ),

@@ -17,10 +17,10 @@ class SplashScreenPageState extends State<SplashScreenPage> {
     super.initState();
     Timer(
         splashScreenDuration,
-            () async {
+        () async {
           Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: toDoRoute)
+            context,
+            MaterialPageRoute(builder: toDoRoute)
           );
         }
     );
@@ -30,7 +30,7 @@ class SplashScreenPageState extends State<SplashScreenPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SplashScreenImage(),
-      backgroundColor: AppColors.splashScreenBackgroundColor,
+      backgroundColor: AppColors.primaryColor,
     );
   }
 }
