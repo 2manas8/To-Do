@@ -34,7 +34,7 @@ jobs:
       
       - name: Create release version tag
         id: create_tag
-        run: echo ::set-output name=tag::v$(date +'%Y.%m.%d')-$(git rev-parse --short HEAD)
+        run: echo ::set-output name=tag::v1.0.0
       
       - name: Push to Releases
         uses: ncipollo/release-action@v1
