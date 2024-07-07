@@ -26,6 +26,7 @@ jobs:
         working-directory: frontend
       - name: Build Flutter APK
         run: flutter build apk --release --split-per-abi
+        working-directory: frontend
       - name: Create release version tag
         id: create_tag
         run: echo ::set-output name=tag::v$(date +'%Y.%m.%d')-$(git rev-parse --short HEAD)
