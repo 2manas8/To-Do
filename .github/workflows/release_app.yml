@@ -23,6 +23,7 @@ jobs:
           channel: 'stable'
       - name: Install Flutter dependencies
         run: flutter pub get
+        working-directory: main/frontend
       - name: Build Flutter APK
         run: flutter build apk --release --split-per-abi
       - name: Create release version tag
