@@ -12,24 +12,30 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Set up Java
         uses: actions/setup-java@v2
         with:
           distribution: 'zulu'
           java-version: '11'
+
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+
       - name: Install Flutter dependencies
         run: flutter pub get
         working-directory: frontend
+      
       - name: Build Flutter APK
         run: flutter build apk --release --split-per-abi
         working-directory: frontend
+      
       - name: Create release version tag
         id: create_tag
         run: echo ::set-output name=tag::v$(date +'%Y.%m.%d')-$(git rev-parse --short HEAD)
+      
       - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
