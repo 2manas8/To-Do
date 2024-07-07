@@ -33,4 +33,4 @@ jobs:
         with:
           artifacts: "build/app/outputs/apk/release/*.apk"
           tag: ${{ steps.create_tag.outputs.tag }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.TO_DO_APP_TOKEN }}
