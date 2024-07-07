@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/models/tasks.dart';
 import 'package:frontend/providers/controllers.dart';
+import 'package:frontend/providers/error_provider.dart';
 import 'package:frontend/services/to-do_services.dart';
 import 'package:frontend/utils/colors.dart';
 import 'package:frontend/utils/constants.dart';
@@ -34,6 +35,8 @@ class ToDoPageState extends State<ToDoPage> {
         actions: [
           RefreshButton(
             onPressedFunction: () {
+              CommonControllers.clearControllers();
+              ErrorProvider.errorMessage = '';
               fetchTasks();
               setState(() {});
             }
