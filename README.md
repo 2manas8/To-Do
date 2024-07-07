@@ -123,9 +123,9 @@ The backend is built using Node.js with Express.js to create a RESTful API. Mong
 
 ## Latest Release
 
-**Version:** v1.0.0
-**Release Date:** July 7, 2024
-**Release Notes:** All the features are listed above and the download links to the latest release are provided below
+- **Version:** v1.0.0
+- **Release Date:** July 7, 2024
+- **Release Notes:** All the features are listed above and the download links to the latest release are provided below
      
 ### APK Download
 - [ARM64-v8a](https://github.com/2manas8/To-Do_App/releases/download/v1.0.0/app-arm64-v8a-release.apk)
