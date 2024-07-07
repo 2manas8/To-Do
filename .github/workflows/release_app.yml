@@ -29,7 +29,7 @@ jobs:
         working-directory: frontend
       
       - name: Build Flutter APK
-        run: flutter build apk --release --split-per-abi
+        run: flutter build apk --debug
         working-directory: frontend
       
       - name: Create release version tag
@@ -39,6 +39,6 @@ jobs:
       - name: Push to Releases
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "frontend/build/app/outputs/apk/release/*.apk"
+          artifacts: "frontend/build/app/outputs/apk/debug/*.apk"
           tag: ${{ steps.create_tag.outputs.tag }}
           token: ${{ secrets.TO_DO_APP_TOKEN }}
