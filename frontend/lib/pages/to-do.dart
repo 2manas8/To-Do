@@ -31,7 +31,7 @@ class ToDoPageState extends State<ToDoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.primaryColor,
+        backgroundColor: AppColors.baseColor,
         actions: [
           RefreshButton(
             onPressedFunction: () {
@@ -43,7 +43,7 @@ class ToDoPageState extends State<ToDoPage> {
           )
         ],
       ),
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.baseColor,
       body: Column(
         children: [
           CustomTitle(

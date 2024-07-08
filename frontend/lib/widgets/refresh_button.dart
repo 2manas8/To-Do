@@ -14,7 +14,7 @@ class RefreshButton extends StatelessWidget {
       onPressed: onPressedFunction,
       icon: Icon(
         Icons.refresh,
-        color: AppColors.tertiaryColor,
+        color: AppColors.secondaryColor,
       ),
     );
   }

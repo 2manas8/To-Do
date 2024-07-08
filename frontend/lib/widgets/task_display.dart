@@ -36,7 +36,7 @@ class TaskDisplayState extends State<TaskDisplay> {
       padding: EdgeInsets.all(defaultPadding),
       margin: EdgeInsets.all(defaultMargin),
       decoration: BoxDecoration(
-        color: AppColors.tertiaryColor,
+        color: AppColors.secondaryColor,
         borderRadius: BorderRadius.circular(borderRadius)
       ),
       child: Row(
@@ -49,19 +49,19 @@ class TaskDisplayState extends State<TaskDisplay> {
               });
               await ToDoApiCalls.taskComplete(widget.id);
             },
-            activeColor: AppColors.primaryColor,
-            checkColor: AppColors.tertiaryColor,
+            activeColor: AppColors.baseColor,
+            checkColor: AppColors.secondaryColor,
           ),
           Expanded(
             child: Text(
               widget.task,
               textAlign: TextAlign.start,
               style: TextStyle(
-                color: AppColors.primaryColor,
+                color: AppColors.baseColor,
                 fontSize: 18.0,
                 decoration: isChecked ? TextDecoration.lineThrough : null,
                 decorationThickness: 2.0,
-                decorationColor: AppColors.primaryColor
+                decorationColor: AppColors.baseColor
               ),
               maxLines: 1,
             ),
@@ -70,7 +70,7 @@ class TaskDisplayState extends State<TaskDisplay> {
             onPressed: widget.onPressedFunction,
             icon: Icon(
               Icons.delete,
-              color: AppColors.primaryColor,
+              color: AppColors.baseColor,
             )
           )
         ],

@@ -26,35 +26,35 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         autofocus: false,
         style: TextStyle(
-          color: AppColors.tertiaryColor
+          color: AppColors.secondaryColor
         ),
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(borderRadius),
             borderSide: BorderSide(
-              color: AppColors.secondaryColor
+              color: AppColors.primaryColor
             )
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(borderRadius),
             borderSide: BorderSide(
-              color: AppColors.tertiaryColor,
+              color: AppColors.secondaryColor,
               width: 2
             )
           ),
           hintText: hintText,
           hintStyle: TextStyle(
-            color: AppColors.secondaryColor,
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w400
           ),
           prefixIcon: Icon(
             prefixIcon,
-            color: AppColors.tertiaryColor,
+            color: AppColors.secondaryColor,
           ),
           suffixIcon: IconButton(
             icon: Icon(
               Icons.add,
-              color: AppColors.tertiaryColor,
+              color: AppColors.secondaryColor,
             ),
             onPressed: onPressedFunction
           )

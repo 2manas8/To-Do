@@ -11,7 +11,7 @@ class TaskFetchingIndicator extends StatelessWidget {
       width: 100,
       alignment: Alignment.topCenter,
       child: CircularProgressIndicator(
-        color: AppColors.tertiaryColor,
+        color: AppColors.secondaryColor,
       ),
     );
   }

@@ -18,7 +18,7 @@ class CustomTitle extends StatelessWidget {
         style: TextStyle(
           fontSize: 30,
           fontWeight: FontWeight.bold,
-          color: AppColors.tertiaryColor
+          color: AppColors.secondaryColor
         ),
       ),
     );

@@ -30,7 +30,7 @@ class SplashScreenPageState extends State<SplashScreenPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SplashScreenImage(),
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.baseColor,
     );
   }
 }

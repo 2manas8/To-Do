@@ -13,7 +13,7 @@ class NoTasksAvailable extends StatelessWidget {
           noTaskAvailableText,
           style: TextStyle(
             fontSize: 25.0,
-            color: AppColors.secondaryColor
+            color: AppColors.primaryColor
           )
         ),
       ),
