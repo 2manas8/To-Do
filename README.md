@@ -60,7 +60,7 @@ The backend is built using Node.js with Express.js to create a RESTful API. Mong
 1. **Clone the repository**
 
    ```sh
-   git clone https://github.com/2manas8/To-Do_App
+   git clone https://github.com/2manas8/To-Do
    cd To-Do_App
    ```
 
